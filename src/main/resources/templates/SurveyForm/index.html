@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head >
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+    <link th:href="styles.css" rel="stylesheet">
+</head>
+<body>
+        <form id="survey-form" action="@{/survey}" th:object="${suvf}">
+        <h1 id="title">Registration</h1>
+        <p id="description">Complete the survey to register in our fansub.</p>
+
+        <label id="name-label">Name: <input type="text" id="name" placeholder="Name" required th:field="*{name}"></label>
+        <label id="number-label">Age: <input type="number" min="14" max="120" id="number" placeholder="age" required></label>
+        <label id="email-label">Email: <input type="email" id="email" placeholder="email" required></label>
+        <label>Gender<div>
+            <input type="radio" name="gender" value="male"> Male 
+                    <input type="radio" name="gender" value="female">Female
+                </div>
+        </label>
+        
+        <label class="select">Wich media do you prefer? 
+            <select id="dropdown">
+                <option>Select one</option>
+                <option>Anime</option>
+                <option>Manga</option>
+                <option>Movie</option>
+                <option>Novel</option>
+                <option>Manhwa</option>
+            </select></label>
+        <section>Wich of this genre do you like more?
+            <div>
+                <label class="tbox"><input type="checkbox" value="action"> Action</label><label class="tbox"><input type="checkbox" value="romance"> Romance</label>
+            </div>
+           <div>
+            <label class="tbox"><input type="checkbox" value="comedy"> Comedy</label><label class="tbox"><input type="checkbox" value="adventure"> Adventure</label>
+           </div>     
+        </section>   
+            <label>Password: <input type="password" id="passowrd" ></label>
+            <label>Repeat password: <input type="password"></label>    
+            <label>Write below the name of your favorites series
+                <textarea placeholder="One Piece, Berzerk ..."></textarea></label>           
+        <div>
+            <input type="submit" id="submit" class="submit" value="Register">
+        </div>
+        
+    </form>
+    </body>
+</html>
